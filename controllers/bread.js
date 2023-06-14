@@ -23,6 +23,7 @@ async function getBreadById(req, res) {
 
 async function createBread(req, res) {
     try {
+        if (!req.body.image) req.body.image = undefined
         await new Bread(req.body).save()
         res.status(201).json({ 'message': 'bread created' })
     } catch (error) {
