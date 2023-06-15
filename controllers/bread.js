@@ -32,8 +32,20 @@ async function createBread(req, res) {
     }
 }
 
+async function deleteBreadById(req, res) {
+    try {
+        const { id } = req.params
+        await Bread.findByIdAndDelete(id)
+        res.status(204).json({ 'message': 'bread deleted' })
+    } catch (error) {
+        console.log('error deleting bread:', error)
+        res.json({ 'message': 'error deleting bread' })
+    }
+}
+
 module.exports = {
     getAllBread,
     getBreadById,
-    createBread
+    createBread,
+    deleteBreadById,
 }
