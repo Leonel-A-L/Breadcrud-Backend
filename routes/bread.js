@@ -4,6 +4,7 @@ const {
     getBreadById,
     createBread,
     deleteBreadById,
+    updateBreadById,
 } = require('../controllers/bread')
 // GET / get all breads
 router.get('/', getAllBread)
@@ -15,7 +16,7 @@ router.get('/:id', getBreadById)
 router.post('/', createBread)
 
 // PUT /:id update
-
+router.put('/:id', updateBreadById)
 // DELETE /:id delete bread by id
 router.delete('/:id', deleteBreadById)
 
